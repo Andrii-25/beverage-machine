@@ -2,7 +2,7 @@ package com.andrii.beveragemachine.controller;
 
 import com.andrii.beveragemachine.dto.Stats;
 import com.andrii.beveragemachine.utils.Bucket;
-import com.andrii.beveragemachine.entity.Cash;
+import com.andrii.beveragemachine.entity.Banknote;
 import com.andrii.beveragemachine.entity.Product;
 import com.andrii.beveragemachine.service.BeverageMachineImp;
 import com.andrii.beveragemachine.utils.Status;
@@ -27,7 +27,7 @@ public class BeverageController {
     }
 
     @RequestMapping(method = RequestMethod.GET, value = "/product")
-    public ResponseEntity<Bucket<Product, List<Cash>>> getProductAndChange() {
+    public ResponseEntity<Bucket<Product, List<Banknote>>> getProductAndChange() {
         try {
             return ResponseEntity.ok().body(beverageMachine.collectProductAndChange());
         } catch (Exception e) {
@@ -36,11 +36,11 @@ public class BeverageController {
     }
 
     @RequestMapping(method = RequestMethod.POST, value = "/cash/{cash}")
-    public ResponseEntity<Status> insertCash(@PathVariable("cash") Cash cash) {
+    public ResponseEntity<Status> insertCash(@PathVariable("cash") Banknote banknote) {
         try {
 
-            beverageMachine.insertCash(cash);
-            return ResponseEntity.ok().body(new Status("Success!", "Successfully inserted: " + cash.getDenomination()));
+            beverageMachine.insertCash(banknote);
+            return ResponseEntity.ok().body(new Status("Success!", "Successfully inserted: " + banknote.getDenomination()));
         } catch (Exception e) {
             return ResponseEntity.badRequest().body(new Status("Failed!", e.getMessage()));
         }
@@ -76,7 +76,7 @@ public class BeverageController {
     }
 
     @RequestMapping(method = RequestMethod.POST, value = "/refund")
-    public ResponseEntity<List<Cash>> refund() {
+    public ResponseEntity<List<Banknote>> refund() {
         try {
             return ResponseEntity.ok().body(beverageMachine.refund());
         } catch (Exception e) {

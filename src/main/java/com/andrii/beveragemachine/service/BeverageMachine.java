@@ -1,7 +1,7 @@
 package com.andrii.beveragemachine.service;
 
 import com.andrii.beveragemachine.dto.Stats;
-import com.andrii.beveragemachine.entity.Cash;
+import com.andrii.beveragemachine.entity.Banknote;
 import com.andrii.beveragemachine.entity.Product;
 import com.andrii.beveragemachine.utils.Bucket;
 
@@ -13,11 +13,11 @@ public interface BeverageMachine {
 
     void selectProduct(Product product);
 
-    void insertCash(Cash cash);
+    void insertCash(Banknote banknote);
 
-    Bucket<Product, List<Cash>> collectProductAndChange();
+    Bucket<Product, List<Banknote>> collectProductAndChange();
 
-    List<Cash> refund();
+    List<Banknote> refund();
 
     void reset();
 

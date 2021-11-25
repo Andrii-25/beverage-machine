@@ -1,6 +1,6 @@
 package com.andrii.beveragemachine.dto;
 
-import com.andrii.beveragemachine.entity.Cash;
+import com.andrii.beveragemachine.entity.Banknote;
 import com.andrii.beveragemachine.entity.Product;
 import com.andrii.beveragemachine.repo.Inventory;
 
@@ -8,12 +8,12 @@ public class Stats {
 
     private double totalSales;
     private Inventory<Product> productInventory;
-    private Inventory<Cash> cashInventory;
+    private Inventory<Banknote> cashInventory;
 
     public Stats() {
     }
 
-    public Stats(double totalSales, Inventory<Product> productInventory, Inventory<Cash> cashInventory) {
+    public Stats(double totalSales, Inventory<Product> productInventory, Inventory<Banknote> cashInventory) {
         this.totalSales = totalSales;
         this.productInventory = productInventory;
         this.cashInventory = cashInventory;
@@ -35,11 +35,11 @@ public class Stats {
         this.productInventory = productInventory;
     }
 
-    public Inventory<Cash> getCashInventory() {
+    public Inventory<Banknote> getCashInventory() {
         return cashInventory;
     }
 
-    public void setCashInventory(Inventory<Cash> cashInventory) {
+    public void setCashInventory(Inventory<Banknote> cashInventory) {
         this.cashInventory = cashInventory;
     }
 }

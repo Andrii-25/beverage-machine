@@ -1,8 +1,7 @@
 package com.andrii.beveragemachine.entity;
 
-public enum Cash {
-    QUARTER(0.25),
-    HALF(0.5),
+public enum Banknote {
+
     ONE(1),
     TWO(2),
     FIVE(5),
@@ -11,7 +10,7 @@ public enum Cash {
 
     private double denomination;
 
-    private Cash(double denomination) {
+    private Banknote(double denomination) {
         this.denomination = denomination;
     }
 
