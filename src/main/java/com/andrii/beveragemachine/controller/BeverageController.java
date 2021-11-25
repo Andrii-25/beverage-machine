@@ -1,6 +1,6 @@
 package com.andrii.beveragemachine.controller;
 
-import com.andrii.beveragemachine.dto.Stats;
+import com.andrii.beveragemachine.entity.Stats;
 import com.andrii.beveragemachine.entity.Coin;
 import com.andrii.beveragemachine.entity.Money;
 import com.andrii.beveragemachine.utils.Bucket;

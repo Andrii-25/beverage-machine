@@ -1,10 +1,10 @@
 package com.andrii.beveragemachine.service;
 
-import com.andrii.beveragemachine.dto.Stats;
+import com.andrii.beveragemachine.entity.Stats;
 import com.andrii.beveragemachine.entity.Coin;
 import com.andrii.beveragemachine.entity.Money;
 import com.andrii.beveragemachine.utils.Bucket;
-import com.andrii.beveragemachine.repo.Inventory;
+import com.andrii.beveragemachine.utils.Inventory;
 import com.andrii.beveragemachine.entity.Banknote;
 import com.andrii.beveragemachine.entity.Product;
 import com.andrii.beveragemachine.exception.NotFullPaidException;

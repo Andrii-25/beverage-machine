@@ -1,4 +1,4 @@
-package com.andrii.beveragemachine.repo;
+package com.andrii.beveragemachine.utils;
 
 import java.util.ArrayList;
 import java.util.HashMap;

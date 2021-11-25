@@ -1,9 +1,6 @@
-package com.andrii.beveragemachine.dto;
+package com.andrii.beveragemachine.entity;
 
-import com.andrii.beveragemachine.entity.Banknote;
-import com.andrii.beveragemachine.entity.Coin;
-import com.andrii.beveragemachine.entity.Product;
-import com.andrii.beveragemachine.repo.Inventory;
+import com.andrii.beveragemachine.utils.Inventory;
 
 public class Stats {
 
