@@ -7,8 +7,8 @@ public enum Product {
     TEA("Tea", 4),
     COFFEE("Coffee", 6);
 
-    private String name;
-    private double price;
+    private final String name;
+    private final double price;
 
     private Product(String name, double price) {
         this.name = name;

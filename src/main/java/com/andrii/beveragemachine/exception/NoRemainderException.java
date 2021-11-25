@@ -1,9 +1,9 @@
 package com.andrii.beveragemachine.exception;
 
-public class NotSufficientChangeException extends RuntimeException {
+public class NoRemainderException extends RuntimeException {
     private final String message;
 
-    public NotSufficientChangeException(String string) {
+    public NoRemainderException(String string) {
         this.message = string;
     }
 

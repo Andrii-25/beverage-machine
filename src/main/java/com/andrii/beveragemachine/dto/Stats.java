@@ -1,6 +1,7 @@
 package com.andrii.beveragemachine.dto;
 
 import com.andrii.beveragemachine.entity.Banknote;
+import com.andrii.beveragemachine.entity.Coin;
 import com.andrii.beveragemachine.entity.Product;
 import com.andrii.beveragemachine.repo.Inventory;
 
@@ -8,15 +9,17 @@ public class Stats {
 
     private double totalSales;
     private Inventory<Product> productInventory;
-    private Inventory<Banknote> cashInventory;
+    private Inventory<Banknote> banknoteInventoryInventory;
+    private Inventory<Coin> coinInventory;
 
     public Stats() {
     }
 
-    public Stats(double totalSales, Inventory<Product> productInventory, Inventory<Banknote> cashInventory) {
+    public Stats(double totalSales, Inventory<Product> productInventory, Inventory<Banknote> banknoteInventoryInventory, Inventory<Coin> coinInventory) {
         this.totalSales = totalSales;
         this.productInventory = productInventory;
-        this.cashInventory = cashInventory;
+        this.banknoteInventoryInventory = banknoteInventoryInventory;
+        this.coinInventory = coinInventory;
     }
 
     public double getTotalSales() {
@@ -35,11 +38,19 @@ public class Stats {
         this.productInventory = productInventory;
     }
 
-    public Inventory<Banknote> getCashInventory() {
-        return cashInventory;
+    public Inventory<Banknote> getBanknoteInventoryInventory() {
+        return banknoteInventoryInventory;
     }
 
-    public void setCashInventory(Inventory<Banknote> cashInventory) {
-        this.cashInventory = cashInventory;
+    public void setBanknoteInventoryInventory(Inventory<Banknote> banknoteInventoryInventory) {
+        this.banknoteInventoryInventory = banknoteInventoryInventory;
+    }
+
+    public Inventory<Coin> getCoinInventory() {
+        return coinInventory;
+    }
+
+    public void setCoinInventory(Inventory<Coin> coinInventory) {
+        this.coinInventory = coinInventory;
     }
 }

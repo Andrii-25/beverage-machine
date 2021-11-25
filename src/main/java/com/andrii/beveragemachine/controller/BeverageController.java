@@ -1,6 +1,8 @@
 package com.andrii.beveragemachine.controller;
 
 import com.andrii.beveragemachine.dto.Stats;
+import com.andrii.beveragemachine.entity.Coin;
+import com.andrii.beveragemachine.entity.Money;
 import com.andrii.beveragemachine.utils.Bucket;
 import com.andrii.beveragemachine.entity.Banknote;
 import com.andrii.beveragemachine.entity.Product;
@@ -12,6 +14,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+@RequestMapping("/machine")
 public class BeverageController {
 
     BeverageMachineImp beverageMachine = new BeverageMachineImp();
@@ -27,20 +30,20 @@ public class BeverageController {
     }
 
     @RequestMapping(method = RequestMethod.GET, value = "/product")
-    public ResponseEntity<Bucket<Product, List<Banknote>>> getProductAndChange() {
+    public ResponseEntity<Bucket<Product, List<Money>>> getProductAndChange() {
         try {
-            return ResponseEntity.ok().body(beverageMachine.collectProductAndChange());
+            return ResponseEntity.ok().body(beverageMachine.collectProductAndRemainder());
         } catch (Exception e) {
             return ResponseEntity.badRequest().build();
         }
     }
 
-    @RequestMapping(method = RequestMethod.POST, value = "/cash/{cash}")
-    public ResponseEntity<Status> insertCash(@PathVariable("cash") Banknote banknote) {
+    @RequestMapping(method = RequestMethod.POST, value = "/money")
+    public ResponseEntity<Status> insertCash(@RequestParam("banknote") Banknote banknote,
+                                             @RequestParam(value = "coin", required = false) Coin coin) {
         try {
-
-            beverageMachine.insertCash(banknote);
-            return ResponseEntity.ok().body(new Status("Success!", "Successfully inserted: " + banknote.getDenomination()));
+            beverageMachine.insertCash(banknote, coin);
+            return ResponseEntity.ok().body(new Status("Success!", "Successfully inserted!"));
         } catch (Exception e) {
             return ResponseEntity.badRequest().body(new Status("Failed!", e.getMessage()));
         }
@@ -76,7 +79,7 @@ public class BeverageController {
     }
 
     @RequestMapping(method = RequestMethod.POST, value = "/refund")
-    public ResponseEntity<List<Banknote>> refund() {
+    public ResponseEntity<List<Money>> refund() {
         try {
             return ResponseEntity.ok().body(beverageMachine.refund());
         } catch (Exception e) {
